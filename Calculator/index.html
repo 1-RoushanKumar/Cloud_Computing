@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <!-- Link to external stylesheet for calculator styling -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Main container for calculator UI -->
+    <div class="container">
+      <div class="calculator">
+        <form>
+          <!-- Display area to show input and result -->
+          <div class="display">
+            <input type="text" id="display" name="display" readonly />
+          </div>
+
+          <!-- Calculator button rows -->
+          <!-- Row 1: Clear, Delete, Decimal, Divide -->
+          <div>
+            <input type="button" value="AC" onclick="clearDisplay()" />
+            <input type="button" value="DE" onclick="deleteLastCharacter()" />
+            <input type="button" value="." onclick="appendToDisplay('.')" />
+            <input type="button" value="/" onclick="appendToDisplay('/')" />
+          </div>
+
+          <!-- Row 2: 7, 8, 9, Multiply -->
+          <div>
+            <input type="button" value="7" onclick="appendToDisplay('7')" />
+            <input type="button" value="8" onclick="appendToDisplay('8')" />
+            <input type="button" value="9" onclick="appendToDisplay('9')" />
+            <input type="button" value="*" onclick="appendToDisplay('*')" />
+          </div>
+
+          <!-- Row 3: 6, 5, 4, Subtract -->
+          <div>
+            <input type="button" value="6" onclick="appendToDisplay('6')" />
+            <input type="button" value="5" onclick="appendToDisplay('5')" />
+            <input type="button" value="4" onclick="appendToDisplay('4')" />
+            <input type="button" value="-" onclick="appendToDisplay('-')" />
+          </div>
+
+          <!-- Row 4: 1, 2, 3, Add -->
+          <div>
+            <input type="button" value="1" onclick="appendToDisplay('1')" />
+            <input type="button" value="2" onclick="appendToDisplay('2')" />
+            <input type="button" value="3" onclick="appendToDisplay('3')" />
+            <input type="button" value="+" onclick="appendToDisplay('+')" />
+          </div>
+
+          <!-- Row 5: 00, 0, Equals -->
+          <div>
+            <input type="button" value="00" onclick="appendToDisplay('00')" />
+            <input type="button" value="0" onclick="appendToDisplay('0')" />
+            <input
+              type="button"
+              value="="
+              class="equal"
+              onclick="calculateResult()"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+      // Get reference to the input display element
+      const display = document.getElementById("display");
+
+      // Clears the entire display
+      function clearDisplay() {
+        display.value = "";
+      }
+
+      // Deletes the last character from the display
+      function deleteLastCharacter() {
+        display.value = display.value.toString().slice(0, -1);
+      }
+
+      // Appends the clicked character (number/operator) to the display
+      function appendToDisplay(character) {
+        display.value += character;
+      }
+
+      // Calculates the result using math.js library (safe alternative to eval)
+      function calculateResult() {
+        try {
+          // Use math.js to evaluate the string expression
+          display.value = math.evaluate(display.value);
+        } catch (e) {
+          // Display error if evaluation fails (e.g., invalid expression)
+          display.value = "Error";
+        }
+      }
+    </script>
+
+    <!-- Load math.js library from CDN for safe math expression evaluation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.min.js"></script>
+  </body>
+</html>
