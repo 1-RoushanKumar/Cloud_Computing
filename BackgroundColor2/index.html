@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    div {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 37%;
+    }
+
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #red {
+      background-color: red;
+      border: none;
+      color: white;
+      border: 2px solid black;
+    }
+    #green {
+      background-color: green;
+      border: none;
+      color: white;
+      border: 2px solid black;
+    }
+    #blue {
+      background-color: blue;
+      border: none;
+      color: white;
+      border: 2px solid black;
+    }
+  </style>
+  <body>
+    <div id="color">
+      <button id="red">Red</button>
+      <button id="green">Green</button>
+      <button id="blue">Blue</button>
+    </div>
+
+    <script>
+      const red = document.getElementById("red");
+      const green = document.getElementById("green");
+      const blue = document.getElementById("blue");
+
+      red.onclick = function () {
+        document.body.style.backgroundColor = "red";
+      };
+      green.onclick = function () {
+        document.body.style.backgroundColor = "green";
+      };
+      blue.onclick = function () {
+        document.body.style.backgroundColor = "blue";
+      };
+    </script>
+  </body>
+</html>
