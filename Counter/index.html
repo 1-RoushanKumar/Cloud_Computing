@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter App</title>
+  </head>
+  <style>
+    div {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    button {
+      cursor: pointer;
+      padding: 5px 10px;
+      font-size: 16px;
+    }
+    #show {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+  <body>
+    <h2>Counter App</h2>
+
+    <div id="counter">
+      <button id="inc">+1</button>
+      <p id="show">0</p>
+      <button id="dec">-1</button>
+    </div>
+
+    <script>
+      const inc = document.getElementById("inc");
+      const dec = document.getElementById("dec");
+      const data = document.getElementById("show");
+
+      inc.onclick = function () {
+        let val = parseInt(data.textContent);
+        val = val + 1;
+        data.textContent = val;
+      };
+
+      dec.onclick = function () {
+        let val = parseInt(data.textContent);
+        val = val - 1;
+        if (val <= 0) {
+          val = 0;
+        }
+        data.textContent = val;
+      };
+    </script>
+  </body>
+</html>

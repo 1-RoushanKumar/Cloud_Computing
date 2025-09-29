@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+  </head>
+  <body>
+    <h2>Registration Form:</h2>
+
+    <form id="registerForm">
+      <label for="username">Enter Username:</label>
+      <input id="username" type="text" />
+      <br /><br />
+      <label for="email">Enter Email:</label>
+      <input id="email" type="email" />
+      <br /><br />
+      <label for="pass">Enter password:</label>
+      <input id="pass" type="password" />
+      <br /><br />
+      <label for="cnfPass">Again Enter password:</label>
+      <input id="cnfPass" type="password" />
+      <br /><br />
+      <button type="submit">Submit</button>
+    </form>
+
+    <p id="error" style="color: red"></p>
+
+    <script>
+      const f = document.getElementById("registerForm");
+      const p = document.getElementById("pass");
+      const cp = document.getElementById("cnfPass");
+      const errorMsg = document.getElementById("error");
+
+      f.addEventListener("submit", function (event) {
+        event.preventDefault();
+        if (cp.value !== p.value) {
+          errorMsg.textContent = "Error: Passwords didn't match!";
+        } else {
+          errorMsg.textContent = "";
+          alert("Form Submitted Successfully!");
+          f.reset();
+        }
+      });
+    </script>
+  </body>
+</html>

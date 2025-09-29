@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TicTacToe</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .col {
+        border: 2px solid black;
+        height: 100px;
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+      }
+      .row {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col" id="0" onclick="play(this)"></div>
+        <div class="col" id="1" onclick="play(this)"></div>
+        <div class="col" id="2" onclick="play(this)"></div>
+      </div>
+      <div class="row">
+        <div class="col" id="3" onclick="play(this)"></div>
+        <div class="col" id="4" onclick="play(this)"></div>
+        <div class="col" id="5" onclick="play(this)"></div>
+      </div>
+      <div class="row">
+        <div class="col" id="6" onclick="play(this)"></div>
+        <div class="col" id="7" onclick="play(this)"></div>
+        <div class="col" id="8" onclick="play(this)"></div>
+      </div>
+    </div>
+
+    <script src="script.js">
+    </script>
+  </body>
+</html>

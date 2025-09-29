@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+  </head>
+  <body>
+    <h2>To-Do List</h2>
+
+    <form id="task">
+      <label for="data">Add Task:</label>
+      <input type="text" id="data" required />
+      <button type="submit">ADD</button>
+    </form>
+
+    <ul id="tasks"></ul>
+    <!-- using UL for list -->
+
+    <script>
+      const f = document.getElementById("task");
+      const p = document.getElementById("tasks");
+      const i = document.getElementById("data");
+
+      f.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        if (i.value.trim() === "") return; // ignore empty
+
+        // create new list item
+        const li = document.createElement("li");
+        li.textContent = i.value;
+
+        // add delete button
+        const delBtn = document.createElement("button");
+        delBtn.textContent = "❌";
+        delBtn.style.marginLeft = "10px";
+
+        delBtn.onclick = function () {
+          li.remove();
+        };
+
+        li.appendChild(delBtn);
+        p.appendChild(li);
+
+        i.value = ""; // clear input
+      });
+    </script>
+  </body>
+</html>
